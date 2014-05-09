@@ -7,6 +7,13 @@
 //
 
 #import "MOOAppDelegate.h"
+#import "MOOMoodInputViewController.h"
+
+#if TARGET_IPHONE_SIMULATOR
+	#import "DCIntrospect.h"
+#endif
+
+static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
 
 @implementation MOOAppDelegate
 
@@ -14,6 +21,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    [self.window setRootViewController:[MOOMoodInputViewController new]];
+
+    [self setupClassy];
+    [self startDCIntrospect];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -49,6 +62,26 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
+}
+
+- (void)startDCIntrospect {
+#if TARGET_IPHONE_SIMULATOR
+	[[DCIntrospect sharedIntrospector] start];
+#endif
+}
+
+- (void)setupClassy {
+    NSError *error = nil;
+
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[kNameOfStylesheetFile lastPathComponent] ofType:nil];
+    [[CASStyler defaultStyler] setFilePath:filePath error:&error];
+    if (error) {
+        NSLog(@"Classy error : %@ -- file %@", [error localizedDescription],filePath);
+    }
+#if TARGET_IPHONE_SIMULATOR
+    NSString *absoluteFilePath = CASAbsoluteFilePath(kNameOfStylesheetFile);
+    [CASStyler defaultStyler].watchFilePath = absoluteFilePath;
+#endif
 }
 
 @end

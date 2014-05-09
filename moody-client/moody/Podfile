@@ -6,4 +6,6 @@ pod 'Mantle'
 pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
 pod 'NSArray+Functional'
 pod 'libextobjc'
-
+pod 'Classy', '~> 0.2.4'
+pod 'ClassyLiveLayout', '~> 0.5.0'
+pod 'DCIntrospect-ARC', :git => 'https://github.com/sorenu/DCIntrospect-ARC.git'

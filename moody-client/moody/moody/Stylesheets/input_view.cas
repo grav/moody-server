@@ -1,0 +1,8 @@
+^UIView {
+    /*background-color: green;*/
+}
+
+UISlider.mood-input-slider {
+    margin-top: 100;
+    margin-bottom: 30;
+}

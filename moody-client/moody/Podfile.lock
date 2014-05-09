@@ -1,4 +1,9 @@
 PODS:
+  - Classy (0.2.4)
+  - ClassyLiveLayout (0.5.0):
+    - Classy
+    - Masonry
+  - DCIntrospect-ARC (0.0.6)
   - dyci (0.1.5.20140124):
     - dyci/Core
     - dyci/Helpers
@@ -57,6 +62,9 @@ PODS:
     - ReactiveCocoa/Core
 
 DEPENDENCIES:
+  - Classy (~> 0.2.4)
+  - ClassyLiveLayout (~> 0.5.0)
+  - DCIntrospect-ARC (from `https://github.com/sorenu/DCIntrospect-ARC.git`)
   - dyci (from `https://github.com/DyCI/dyci-main.git`)
   - libextobjc
   - Mantle
@@ -65,10 +73,15 @@ DEPENDENCIES:
   - ReactiveCocoa
 
 EXTERNAL SOURCES:
+  DCIntrospect-ARC:
+    :git: https://github.com/sorenu/DCIntrospect-ARC.git
   dyci:
     :git: https://github.com/DyCI/dyci-main.git
 
 SPEC CHECKSUMS:
+  Classy: 558fdea4332e29c9c5a2c7a8687c385e11ae463b
+  ClassyLiveLayout: 029fc037732107d2c051438046e79d751b483e59
+  DCIntrospect-ARC: 41cae8dbe48748e77a4466963896df13889df041
   dyci: a547f35263983aad987afa301ba0a10d2d160c51
   libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
