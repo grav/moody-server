@@ -56,10 +56,12 @@
         return [l.timestamp isAfterDate:currentDate] && [l.timestamp isBeforeDate:a.timestamp] ? l : a;
     } initialAggregation:self.lastLocation];
 
+    NSTimeInterval norm = (currentDate.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970) / (after.timestamp.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970);
+
     MKMapPoint afterPoint = MKMapPointForCoordinate(after.coordinate);
     MKMapPoint beforePoint = MKMapPointForCoordinate(before.coordinate);
-    double x = (afterPoint.x - beforePoint.x) * self.time + beforePoint.x;
-    double y = (afterPoint.y - beforePoint.y) * self.time + beforePoint.y;
+    double x = (afterPoint.x - beforePoint.x) * norm + beforePoint.x;
+    double y = (afterPoint.y - beforePoint.y) * norm + beforePoint.y;
 
 
     CLLocation *location = [[CLLocation alloc] initWithCoordinate:MKCoordinateForMapPoint(MKMapPointMake(x, y))
@@ -70,7 +72,7 @@
                                                             speed:0
                                                         timestamp:currentDate];
 
-    return @[before,location,after];
+    return @[location];
 
     // TODO - time interpolation
     // TODO - cache
