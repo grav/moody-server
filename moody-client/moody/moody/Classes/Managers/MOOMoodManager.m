@@ -8,7 +8,7 @@
 #import "MOOMood.h"
 #import "MOOAPIManager.h"
 
-static CGFloat const kUploadQueueThrottle = 60.f;
+static CGFloat const kUploadQueueThrottle = 10.f;
 
 @interface MOOMoodManager ()
 

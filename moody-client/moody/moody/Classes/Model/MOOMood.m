@@ -18,7 +18,7 @@
     mood.latitude = location.coordinate.latitude;
     mood.longtitude = location.coordinate.longitude;
     mood.mood = score;
-
+    mood.timestamp = location.timestamp;
     return mood;
 }
 
@@ -33,9 +33,25 @@
 
 #pragma mark - JSON serialization
 
++ (NSDateFormatter *)dateFormatter {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    return dateFormatter;
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+        return [self.dateFormatter dateFromString:str];
+    } reverseBlock:^(NSDate *date) {
+        return [self.dateFormatter stringFromDate:date];
+    }];
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{};
 }
+
 
 
 

@@ -9,7 +9,7 @@
 CGFloat const kMaxMoodValue = 5.f;
 CGFloat const kMinMoodValue = -kMaxMoodValue;
 
-static CGFloat const kRegisterMoodThrottle = 10.f;
+static CGFloat const kRegisterMoodThrottle = 2.f;
 
 typedef NS_ENUM(NSInteger, MOOMoodState) {
     MOOMoodStateVeryHappy,
