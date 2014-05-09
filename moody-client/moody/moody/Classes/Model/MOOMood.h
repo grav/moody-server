@@ -4,11 +4,18 @@
 //
 
 
+#import "MTLModel.h"
+#import "MTLJSONAdapter.h"
 @class CLLocation;
 
-@interface MOOMood : NSObject
+@interface MOOMood : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, assign) CGFloat mood;
-@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic) double latitude, longtitude;
+@property (nonatomic, strong) NSDate *timestamp;
+
++ (instancetype)moodWithScore:(CGFloat)score location:(CLLocation*)location;
+
+- (CLLocation *)location;
 
 @end

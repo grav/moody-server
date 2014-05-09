@@ -5,4 +5,7 @@
 
 
 @interface MOOAPIManager : NSObject
++ (RACSignal *)getMoods;
++ (RACSignal *)postMoods:(NSArray *)moods;
+
 @end

@@ -11,6 +11,7 @@
 		308A60B0ADADD854438E8334 /* MOOMoodsOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6D09CD5525F504387EF8 /* MOOMoodsOverlay.m */; };
 		308A62DAF38E69987C32DE5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
 		308A62FEFF240F935F8795EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
+		308A659E79E24A38C7E6909F /* NSURLConnection+MOOAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6F9082DB6D893F0A7625 /* NSURLConnection+MOOAdditions.m */; };
 		308A65F5A9CD4508F066D6A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 308A6A290F6CB5CC164262AB /* InfoPlist.strings */; };
 		308A669498C7183A7AF01032 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A655C8F57AD69954E57B9 /* CoreGraphics.framework */; };
 		308A66FDCD0D8DB5BD6BBC9A /* PBXBuildFile */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
@@ -69,6 +70,7 @@
 		308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moodyTests.m; sourceTree = "<group>"; };
 		308A6815C0E0EADED88A3149 /* MOOMoodRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodRenderer.h; sourceTree = "<group>"; };
 		308A693389B81284CDC50AD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		308A6A957AFEA7C561BDD13D /* NSURLConnection+MOOAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+MOOAdditions.h"; sourceTree = "<group>"; };
 		308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MOOAdditions.m"; sourceTree = "<group>"; };
 		308A6B9CF030CB597D5741AF /* MOOMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMenuViewController.m; sourceTree = "<group>"; };
 		308A6C16FF879BDBAD737E61 /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		308A6D32CCAA3CD68746DC75 /* moodyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "moodyTests-Info.plist"; sourceTree = "<group>"; };
 		308A6D9B15066E76E5731F37 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		308A6E509B601CE74BBBBC1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		308A6F9082DB6D893F0A7625 /* NSURLConnection+MOOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+MOOAdditions.m"; sourceTree = "<group>"; };
 		6D951669191D30E600D027E5 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UI; sourceTree = "<group>"; };
 		6D95166B191D315600D027E5 /* resource_images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource_images.h; sourceTree = "<group>"; };
 		ACF817844C0D46E7A0E7255D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				CA8ED824A2A423E90F5415F8 /* Stylesheets */,
 				CA8EDFE1F121E8FBC368447D /* MOOAppDelegate.m */,
 				CA8EDE515EF60BCC1BDBD2AB /* MOOAppDelegate.h */,
+				308A6F9082DB6D893F0A7625 /* NSURLConnection+MOOAdditions.m */,
+				308A6A957AFEA7C561BDD13D /* NSURLConnection+MOOAdditions.h */,
 			);
 			path = moody;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				308A6AF9BE6FCA8E8749E2D2 /* MOOMoodRenderer.m in Sources */,
 				308A67DD695C3B1714D1DB05 /* MOOMockDataGenerator.m in Sources */,
 				308A6EAF3FB0C574BC4982BB /* NSDate+MOOAdditions.m in Sources */,
+				308A659E79E24A38C7E6909F /* NSURLConnection+MOOAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

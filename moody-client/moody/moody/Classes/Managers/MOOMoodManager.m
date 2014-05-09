@@ -6,6 +6,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MOOMoodManager.h"
 #import "MOOMood.h"
+#import "MOOAPIManager.h"
 
 static CGFloat const kUploadQueueThrottle = 60.f;
 
@@ -40,13 +41,12 @@ static CGFloat const kUploadQueueThrottle = 60.f;
 
 - (void)registerMoodValue:(CGFloat)moodValue {
     CLLocation *location = [self currentLocation];
-    MOOMood *mood = [MOOMood new];
-    mood.location = location;
-    mood.mood = moodValue;
+    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location];
     [self enqueueMood:mood];
 }
 
 - (CLLocation *)currentLocation {
+    // TODO
     return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(0, 0)
                                          altitude:0
                                horizontalAccuracy:0
@@ -63,6 +63,12 @@ static CGFloat const kUploadQueueThrottle = 60.f;
 
 - (void)uploadObjectsInQueue:(NSArray *)queue {
     NSLog(@"Uploading queue: %@", queue);
+    [[MOOAPIManager postMoods:self.queue] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    } error:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    self.queue = @[];
 }
 
 @end
