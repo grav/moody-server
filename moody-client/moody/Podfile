@@ -10,3 +10,4 @@ pod 'Classy', '~> 0.2.4'
 pod 'ClassyLiveLayout', '~> 0.5.0'
 pod 'DCIntrospect-ARC', :git => 'https://github.com/sorenu/DCIntrospect-ARC.git'
 pod 'pop', "~> 1.0.4"
+pod 'MMDrawerController'

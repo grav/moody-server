@@ -52,6 +52,18 @@ PODS:
     - Mantle/extobjc
   - Mantle/extobjc (1.4.1)
   - Masonry (0.4.0)
+  - MMDrawerController (0.5.5):
+    - MMDrawerController/Core
+    - MMDrawerController/MMDrawerBarButtonItem
+    - MMDrawerController/MMDrawerVisualStates
+    - MMDrawerController/Subclass
+  - MMDrawerController/Core (0.5.5)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.5):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.5):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.5):
+    - MMDrawerController/Core
   - NSArray+Functional (1.0.0)
   - pop (1.0.4)
   - ReactiveCocoa (2.3):
@@ -70,6 +82,7 @@ DEPENDENCIES:
   - libextobjc
   - Mantle
   - Masonry
+  - MMDrawerController
   - NSArray+Functional
   - pop (~> 1.0.4)
   - ReactiveCocoa
@@ -88,6 +101,7 @@ SPEC CHECKSUMS:
   libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
   Masonry: d673617c9cbc24aaea90fba20b10e47fd9970a39
+  MMDrawerController: fb6a17a3e2d1cb4f5f4a411915703b3569cdb227
   NSArray+Functional: 2fb24f1533c1380a595ed1da347bd4ec705f5495
   pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
   ReactiveCocoa: dde7b11a14954edf789e7343b2c32e595caabd01
