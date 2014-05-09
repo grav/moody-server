@@ -27,7 +27,7 @@
         MKMapPoint mapPoint = MKMapPointForCoordinate(location.coordinate);
 
         CGPoint point = [self pointForMapPoint:mapPoint];
-        CGContextAddArc(ctx, point.x, point.y, 200, 0.0, (CGFloat) (M_PI* 2), YES);
+        CGContextAddArc(ctx, point.x, point.y, 300, 0.0, (CGFloat) (M_PI* 2), YES);
         CGContextFillPath(ctx);
     }];
 }

@@ -61,8 +61,8 @@
 - (MOOMoodInputView *)mainView {
     if (!_mainView) {
         _mainView = [MOOMoodInputView new];
-        _mainView.slider.minimumValue = kMinMoodValue;
-        _mainView.slider.maximumValue = kMaxMoodValue;
+        _mainView.slider.minimumValue = -1;
+        _mainView.slider.maximumValue = 1;
     }
     return _mainView;
 }

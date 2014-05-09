@@ -11,7 +11,9 @@
 
 @end
 
-@implementation MOOMood
+@implementation MOOMood {
+    CLLocation *_location;
+}
 
 + (instancetype)moodWithScore:(CGFloat)score location:(CLLocation *)location {
     MOOMood *mood = [MOOMood new];
@@ -23,12 +25,16 @@
 }
 
 - (CLLocation *)location {
-    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longtitude)
-                                         altitude:0
-                               horizontalAccuracy:0
-                                 verticalAccuracy:0
-                                           course:0 speed:0
-                                        timestamp:self.timestamp];
+    if(!_location){
+        _location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longtitude)
+                                                 altitude:0
+                                       horizontalAccuracy:0
+                                         verticalAccuracy:0
+                                                   course:0 speed:0
+                                                timestamp:self.timestamp];
+
+    }
+    return _location;
 }
 
 #pragma mark - JSON serialization
@@ -51,7 +57,6 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{};
 }
-
 
 
 

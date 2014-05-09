@@ -5,9 +5,7 @@
 
 #import "MOOMoodInputViewModel.h"
 #import "MOOMoodManager.h"
-
-CGFloat const kMaxMoodValue = 5.f;
-CGFloat const kMinMoodValue = -kMaxMoodValue;
+#import "UIColor+MOOAdditions.h"
 
 static CGFloat const kRegisterMoodThrottle = 2.f;
 
@@ -46,17 +44,7 @@ typedef NS_ENUM(NSInteger, MOOMoodState) {
 
 - (void)bindBackgroundColor {
     RAC(self, backgroundColor) = [RACObserve(self, moodValue) map:^id(NSNumber *moodNum) {
-        CGFloat moodValue = moodNum.floatValue;
-
-        if (moodValue > 0) {
-            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor greenColor] withDuration:(moodValue / kMaxMoodValue)];
-        }
-        else if (moodValue == 0) {
-            return [UIColor yellowColor];
-        }
-        else {
-            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor redColor] withDuration:(CGFloat) (fabs(moodValue / kMinMoodValue))];
-        }
+        return [UIColor colorForMood:moodNum.floatValue];
     }];
 }
 
@@ -68,8 +56,7 @@ typedef NS_ENUM(NSInteger, MOOMoodState) {
 - (void)bindMoodState {
     RAC(self, moodState) = [RACObserve(self, moodValue) map:^id(NSNumber *moodNum) {
         CGFloat moodValue = moodNum.floatValue;
-        CGFloat relativeMaxValue = (CGFloat) (fabs(kMinMoodValue) + kMaxMoodValue);
-        CGFloat relativeMoodValue = (moodValue + kMaxMoodValue) / relativeMaxValue;
+        CGFloat relativeMoodValue = moodValue + 1 / 2;
 
         if (relativeMoodValue > 0.8f) {
             return @(MOOMoodStateVeryHappy);
@@ -103,23 +90,7 @@ typedef NS_ENUM(NSInteger, MOOMoodState) {
     }];
 }
 
-- (UIColor *)colorLerpFrom:(UIColor *)start to:(UIColor *)end withDuration:(CGFloat)t {
-    if (t < 0.0f) t = 0.0f;
-    if (t > 1.0f) t = 1.0f;
 
-    const CGFloat *startComponent = CGColorGetComponents(start.CGColor);
-    const CGFloat *endComponent = CGColorGetComponents(end.CGColor);
-
-    CGFloat startAlpha = CGColorGetAlpha(start.CGColor);
-    CGFloat endAlpha = CGColorGetAlpha(end.CGColor);
-
-    CGFloat r = startComponent[0] + (endComponent[0] - startComponent[0]) * t;
-    CGFloat g = startComponent[1] + (endComponent[1] - startComponent[1]) * t;
-    CGFloat b = startComponent[2] + (endComponent[2] - startComponent[2]) * t;
-    CGFloat a = startAlpha + (endAlpha - startAlpha) * t;
-
-    return [UIColor colorWithRed:r green:g blue:b alpha:a];
-}
 
 
 @end
