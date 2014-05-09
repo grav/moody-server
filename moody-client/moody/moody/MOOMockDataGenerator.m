@@ -32,7 +32,7 @@
 }
 
 + (CLLocationCoordinate2D)randomWalkFromLocation:(CLLocationCoordinate2D)start {
-    CLLocationDistance dDistMax = 0.01;
+    CLLocationDistance dDistMax = 0.005;
     CLLocationCoordinate2D end = start;
     end.latitude += (drand48() - 0.5) * 2 * dDistMax;
     end.longitude += (drand48() - 0.5) * 2 * dDistMax;

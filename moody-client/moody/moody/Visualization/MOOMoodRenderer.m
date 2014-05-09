@@ -29,7 +29,7 @@
 
 //        CGContextSetRGBStrokeColor(ctx, 0.8, 0.8, 0.8, 1.0);
         CGContextSetFillColorWithColor(ctx, [UIColor orangeColor].CGColor);
-        CGContextAddArc(ctx, point.x, point.y, 500, 0.0, (CGFloat) (M_PI* 2), YES);
+        CGContextAddArc(ctx, point.x, point.y, 200, 0.0, (CGFloat) (M_PI* 2), YES);
 //        CGContextStrokePath(ctx);
         CGContextFillPath(ctx);
     }];
