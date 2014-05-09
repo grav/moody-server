@@ -15,7 +15,7 @@
     CLLocation *_location;
 }
 
-+ (instancetype)moodWithScore:(CGFloat)score location:(CLLocation *)location {
++ (instancetype)moodWithScore:(double)score location:(CLLocation *)location {
     MOOMood *mood = [MOOMood new];
     mood.latitude = location.coordinate.latitude;
     mood.longtitude = location.coordinate.longitude;

@@ -44,13 +44,14 @@
         return [l.timestamp isAfterDate:currentDate] && [l.timestamp isBeforeDate:a.timestamp] ? l : a;
     } initialAggregation:self.lastLocation];
 
-    NSTimeInterval norm = (currentDate.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970) / (after.timestamp.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970);
+    double norm = (currentDate.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970) / (after.timestamp.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970);
 
     MKMapPoint afterPoint = MKMapPointForCoordinate(CLLocationCoordinate2DMake(after.latitude, after.longtitude));
     MKMapPoint beforePoint = MKMapPointForCoordinate(CLLocationCoordinate2DMake(before.latitude, before.longtitude));
     double x = (afterPoint.x - beforePoint.x) * norm + beforePoint.x;
     double y = (afterPoint.y - beforePoint.y) * norm + beforePoint.y;
 
+    double moodValue = (after.mood - before.mood) * norm + before.mood;
 
     CLLocation *location = [[CLLocation alloc] initWithCoordinate:MKCoordinateForMapPoint(MKMapPointMake(x, y))
                                                          altitude:0
@@ -60,7 +61,9 @@
                                                             speed:0
                                                         timestamp:currentDate];
 
-    return @[location];
+    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location];
+
+    return @[mood];
 }
 
 - (CLLocationCoordinate2D)coordinate {

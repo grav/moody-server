@@ -26,7 +26,7 @@
 }
 
 
-+ (UIColor*)coloorForMood:(CGFloat)moodValue
++ (UIColor*)colorForMood:(double)moodValue
 {
 
     if (moodValue > 0) {

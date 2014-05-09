@@ -10,11 +10,11 @@
 
 @interface MOOMood : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, assign) CGFloat mood;
+@property (nonatomic, assign) double mood;
 @property (nonatomic) double latitude, longtitude;
 @property (nonatomic, strong) NSDate *timestamp;
 
-+ (instancetype)moodWithScore:(CGFloat)score location:(CLLocation*)location;
++ (instancetype)moodWithScore:(double)score location:(CLLocation*)location;
 
 - (CLLocation *)location;
 

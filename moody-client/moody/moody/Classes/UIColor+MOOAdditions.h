@@ -8,5 +8,5 @@
 @interface UIColor (MOOAdditions)
 + (UIColor *)colorLerpFrom:(UIColor *)start to:(UIColor *)end withDuration:(CGFloat)t;
 
-+ (UIColor *)colorForMood:(CGFloat)moodValue;
++ (UIColor *)colorForMood:(double)moodValue;
 @end
