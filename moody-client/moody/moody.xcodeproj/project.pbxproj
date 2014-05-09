@@ -12,6 +12,7 @@
 		308A62FEFF240F935F8795EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
 		308A65F5A9CD4508F066D6A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 308A6A290F6CB5CC164262AB /* InfoPlist.strings */; };
 		308A669498C7183A7AF01032 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A655C8F57AD69954E57B9 /* CoreGraphics.framework */; };
+		308A6752671561C2349B98E1 /* MOOVizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */; };
 		308A687B330ECD98D7012424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D9B15066E76E5731F37 /* XCTest.framework */; };
 		308A6BD6EF881029BE78B09C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A606EE554E29527880849 /* main.m */; };
 		308A6C95BE3E95906F635529 /* moodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */; };
@@ -42,6 +43,8 @@
 		308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moodyTests.m; sourceTree = "<group>"; };
 		308A693389B81284CDC50AD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		308A693D9B4E14325393BBF5 /* MOOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOOAppDelegate.m; sourceTree = "<group>"; };
+		308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOVizViewController.m; sourceTree = "<group>"; };
+		308A6B7173ABE295CD7594EA /* MOOVizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOVizViewController.h; sourceTree = "<group>"; };
 		308A6C16FF879BDBAD737E61 /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		308A6CC4C0BBAA2CFF747280 /* MOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOOAppDelegate.h; sourceTree = "<group>"; };
 		308A6CD981E091DA1B4D3A4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -87,6 +90,15 @@
 			path = moodyTests;
 			sourceTree = "<group>";
 		};
+		308A618293EFE9396F21A19C /* Visualization */ = {
+			isa = PBXGroup;
+			children = (
+				308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */,
+				308A6B7173ABE295CD7594EA /* MOOVizViewController.h */,
+			);
+			path = Visualization;
+			sourceTree = "<group>";
+		};
 		308A628F7282399564EF2872 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,7 @@
 				308A6CC4C0BBAA2CFF747280 /* MOOAppDelegate.h */,
 				308A693D9B4E14325393BBF5 /* MOOAppDelegate.m */,
 				308A6E509B601CE74BBBBC1C /* Images.xcassets */,
+				308A618293EFE9396F21A19C /* Visualization */,
 			);
 			path = moody;
 			sourceTree = "<group>";
@@ -286,6 +299,7 @@
 			files = (
 				308A6BD6EF881029BE78B09C /* main.m in Sources */,
 				308A6F3CE3DBDFDA7036C4E1 /* MOOAppDelegate.m in Sources */,
+				308A6752671561C2349B98E1 /* MOOVizViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
