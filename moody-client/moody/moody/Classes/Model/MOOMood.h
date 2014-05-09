@@ -10,6 +10,5 @@
 
 @property (nonatomic, assign) CGFloat mood;
 @property (nonatomic, strong) CLLocation *location;
-@property (nonatomic, strong) NSDate *date;
 
 @end

@@ -39,17 +39,20 @@ static CGFloat const kUploadQueueThrottle = 60.f;
 }
 
 - (void)registerMoodValue:(CGFloat)moodValue {
-    NSDate *now = [NSDate date];
     CLLocation *location = [self currentLocation];
     MOOMood *mood = [MOOMood new];
-    mood.date = now;
     mood.location = location;
     mood.mood = moodValue;
     [self enqueueMood:mood];
 }
 
 - (CLLocation *)currentLocation {
-    return nil;
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(0, 0)
+                                         altitude:0
+                               horizontalAccuracy:0
+                                 verticalAccuracy:0
+                                           course:0 speed:0
+                                        timestamp:[NSDate date]];
 }
 
 - (void)enqueueMood:(MOOMood *)mood {
