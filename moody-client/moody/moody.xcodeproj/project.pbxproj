@@ -14,6 +14,7 @@
 		308A669498C7183A7AF01032 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A655C8F57AD69954E57B9 /* CoreGraphics.framework */; };
 		308A66FDCD0D8DB5BD6BBC9A /* MOOMockDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
 		308A6752671561C2349B98E1 /* MOOVizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */; };
+		308A6758AB0437E969CE1AAA /* NSDate+MOOAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */; };
 		308A687B330ECD98D7012424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D9B15066E76E5731F37 /* XCTest.framework */; };
 		308A6A373075F5B2B075DF6E /* MOOMoodRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A66D9E4276DFE235AFED9 /* MOOMoodRenderer.m */; };
 		308A6BD6EF881029BE78B09C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A606EE554E29527880849 /* main.m */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		308A606EE554E29527880849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMockDataGenerator.h; sourceTree = "<group>"; };
+		308A62A458022E04B6C98677 /* NSDate+MOOAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MOOAdditions.h"; sourceTree = "<group>"; };
 		308A62A611D4BB9322FDAD60 /* moodyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		308A655C8F57AD69954E57B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		308A65B6391E71787E22198D /* MOOMockDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMockDataGenerator.m; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		308A693D9B4E14325393BBF5 /* MOOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOOAppDelegate.m; sourceTree = "<group>"; };
 		308A69B99C8BB232C8B9BDDB /* MOOMoodsOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodsOverlay.m; sourceTree = "<group>"; };
 		308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOVizViewController.m; sourceTree = "<group>"; };
+		308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MOOAdditions.m"; sourceTree = "<group>"; };
 		308A6B7173ABE295CD7594EA /* MOOVizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOVizViewController.h; sourceTree = "<group>"; };
 		308A6C16FF879BDBAD737E61 /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		308A6C74D820519BFD0947BE /* MOOMoodRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodRenderer.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				308A618293EFE9396F21A19C /* Visualization */,
 				308A65B6391E71787E22198D /* MOOMockDataGenerator.m */,
 				308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */,
+				308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */,
+				308A62A458022E04B6C98677 /* NSDate+MOOAdditions.h */,
 			);
 			path = moody;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				308A66FDCD0D8DB5BD6BBC9A /* MOOMockDataGenerator.m in Sources */,
 				308A6A373075F5B2B075DF6E /* MOOMoodRenderer.m in Sources */,
 				308A6C0419AEA99FFFAB5C5D /* MOOMoodsOverlay.m in Sources */,
+				308A6758AB0437E969CE1AAA /* NSDate+MOOAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

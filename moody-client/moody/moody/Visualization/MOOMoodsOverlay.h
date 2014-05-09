@@ -9,7 +9,7 @@
 
 @interface MOOMoodsOverlay : NSObject<MKOverlay>
 @property (nonatomic, readonly) NSArray *moods;
-@property (nonatomic, strong) NSDate *currentTime;
+@property (nonatomic) double time;
 + (instancetype)overlayWithMoods:(NSArray *)moods;
 - (NSArray *)moodsInRect:(MKMapRect)mapRect;
 

@@ -5,10 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class MOOMoodRenderer;
-
-
-@interface MOOVizViewController : UIViewController
-
+@interface NSDate (MOOAdditions)
+- (BOOL)isBeforeDate:(NSDate *)date;
+- (BOOL)isAfterDate:(NSDate *)date;
 
 @end

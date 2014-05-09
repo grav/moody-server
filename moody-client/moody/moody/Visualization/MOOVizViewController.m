@@ -12,7 +12,7 @@
 
 @interface MOOVizViewController ()<MKMapViewDelegate>
 
-@property(nonatomic) MKMapRect rect;
+@property(nonatomic, strong) MOOMoodRenderer *renderer;
 @end
 
 @implementation MOOVizViewController {
@@ -65,17 +65,23 @@
                                                             startTime:[NSDate date]];
 
     MOOMoodsOverlay *moodsOverlay = [MOOMoodsOverlay overlayWithMoods:locations];
+    RAC(moodsOverlay,time) = time;
     [mapView addOverlay:moodsOverlay];
 
     [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
 
+    [time subscribeNext:^(id x) {
+        [mapView removeOverlay:moodsOverlay];
+        [mapView addOverlay:moodsOverlay];
+    }];
+    
 }
 
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay
 {
-    MOOMoodRenderer *renderer = [[MOOMoodRenderer alloc] initWithOverlay:overlay];
-    return renderer;
+    self.renderer = [[MOOMoodRenderer alloc] initWithOverlay:overlay];
+    return self.renderer;
 }
 
 @end
