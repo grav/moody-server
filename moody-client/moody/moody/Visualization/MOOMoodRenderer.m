@@ -27,8 +27,6 @@
         MKMapPoint mapPoint = MKMapPointForCoordinate(location.coordinate);
 
         CGPoint point = [self pointForMapPoint:mapPoint];
-        NSCAssert(CGRectContainsPoint(rect, point), @"");
-
         CGContextAddArc(ctx, point.x, point.y, 200, 0.0, (CGFloat) (M_PI* 2), YES);
         CGContextFillPath(ctx);
     }];
