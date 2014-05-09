@@ -1,0 +1,9 @@
+platform :ios, "7.0"
+
+pod 'Masonry'
+pod 'ReactiveCocoa'
+pod 'Mantle'
+pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
+pod 'NSArray+Functional'
+pod 'libextobjc'
+
