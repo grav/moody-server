@@ -8,16 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		308A606EFA60662E998CCDBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 308A625093D6A0CFFDFA33C6 /* InfoPlist.strings */; };
+		308A60B0ADADD854438E8334 /* MOOMoodsOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6D09CD5525F504387EF8 /* MOOMoodsOverlay.m */; };
 		308A62DAF38E69987C32DE5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
 		308A62FEFF240F935F8795EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
 		308A65F5A9CD4508F066D6A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 308A6A290F6CB5CC164262AB /* InfoPlist.strings */; };
 		308A669498C7183A7AF01032 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A655C8F57AD69954E57B9 /* CoreGraphics.framework */; };
 		308A66FDCD0D8DB5BD6BBC9A /* PBXBuildFile */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
 		308A6758AB0437E969CE1AAA /* PBXBuildFile */ = {isa = PBXBuildFile; fileRef = 308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */; };
+		308A67DD695C3B1714D1DB05 /* MOOMockDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
+		308A681AA6CF4E6661214A2D /* MOOMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6B9CF030CB597D5741AF /* MOOMenuViewController.m */; };
 		308A687B330ECD98D7012424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D9B15066E76E5731F37 /* XCTest.framework */; };
+		308A6A6211EF83CEE25E7CC4 /* MOOVizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6C55478628AE41FCAAA3 /* MOOVizViewController.m */; };
+		308A6AF9BE6FCA8E8749E2D2 /* MOOMoodRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A675ED98B596D91D13AC6 /* MOOMoodRenderer.m */; };
 		308A6BD6EF881029BE78B09C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A606EE554E29527880849 /* main.m */; };
 		308A6C95BE3E95906F635529 /* moodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */; };
 		308A6DD1A9F30FA2D8DB21B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 308A6E509B601CE74BBBBC1C /* Images.xcassets */; };
+		308A6EAF3FB0C574BC4982BB /* NSDate+MOOAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */; };
 		308A6EC7C15221C92216D38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A66C6F31180A8938F7F7E /* Foundation.framework */; };
 		308A6F3A60F6AE001DBAE7CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A66C6F31180A8938F7F7E /* Foundation.framework */; };
 		6D95166A191D30E600D027E5 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 6D951669191D30E600D027E5 /* UI */; };
@@ -49,6 +55,7 @@
 /* Begin PBXFileReference section */
 		308A6015AE540134AA0A5515 /* MOOVizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOVizViewController.h; sourceTree = "<group>"; };
 		308A606EE554E29527880849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		308A60FB7CE2D85868B63E08 /* MOOMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMenuViewController.h; sourceTree = "<group>"; };
 		308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMockDataGenerator.h; sourceTree = "<group>"; };
 		308A62A458022E04B6C98677 /* NSDate+MOOAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MOOAdditions.h"; sourceTree = "<group>"; };
 		308A62A611D4BB9322FDAD60 /* moodyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +70,7 @@
 		308A6815C0E0EADED88A3149 /* MOOMoodRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodRenderer.h; sourceTree = "<group>"; };
 		308A693389B81284CDC50AD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		308A6B13CCB3264443234151 /* NSDate+MOOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MOOAdditions.m"; sourceTree = "<group>"; };
+		308A6B9CF030CB597D5741AF /* MOOMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMenuViewController.m; sourceTree = "<group>"; };
 		308A6C16FF879BDBAD737E61 /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		308A6C55478628AE41FCAAA3 /* MOOVizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOVizViewController.m; sourceTree = "<group>"; };
 		308A6CC4C0BBAA2CFF747280 /* MOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOOAppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +139,15 @@
 				308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */,
 			);
 			path = moodyTests;
+			sourceTree = "<group>";
+		};
+		308A62718D867275F08C7D41 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				308A6B9CF030CB597D5741AF /* MOOMenuViewController.m */,
+				308A60FB7CE2D85868B63E08 /* MOOMenuViewController.h */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		308A628F7282399564EF2872 /* Supporting Files */ = {
@@ -266,6 +283,7 @@
 			children = (
 				CA8ED3A80B61B8D634884A72 /* MoodInput */,
 				308A6405559C29DCF9D9889D /* Visualization */,
+				308A62718D867275F08C7D41 /* Menu */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -440,6 +458,12 @@
 				CA8EDF7B770A763ABEC8E220 /* MOOMoodManager.m in Sources */,
 				CA8EDCD743AE825F3C6C918A /* MOOMood.m in Sources */,
 				CA8ED14DA06EEE9A36E4D54C /* MOOAPIManager.m in Sources */,
+				308A681AA6CF4E6661214A2D /* MOOMenuViewController.m in Sources */,
+				308A6A6211EF83CEE25E7CC4 /* MOOVizViewController.m in Sources */,
+				308A60B0ADADD854438E8334 /* MOOMoodsOverlay.m in Sources */,
+				308A6AF9BE6FCA8E8749E2D2 /* MOOMoodRenderer.m in Sources */,
+				308A67DD695C3B1714D1DB05 /* MOOMockDataGenerator.m in Sources */,
+				308A6EAF3FB0C574BC4982BB /* NSDate+MOOAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
