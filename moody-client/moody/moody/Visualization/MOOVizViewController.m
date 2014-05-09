@@ -69,10 +69,6 @@
 
     [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
 
-    NSLog(@"%@",locations);
-
-
-
 }
 
 

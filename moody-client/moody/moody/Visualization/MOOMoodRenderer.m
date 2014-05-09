@@ -20,17 +20,16 @@
 
     MOOMoodsOverlay *overlay = (MOOMoodsOverlay *) self.overlay;
 
+    CGContextSetFillColorWithColor(ctx, [UIColor orangeColor].CGColor);
+
+
     [[overlay moodsInRect:mapRect] enumerateObjectsUsingBlock:^(CLLocation *location, NSUInteger idx, BOOL *stop) {
         MKMapPoint mapPoint = MKMapPointForCoordinate(location.coordinate);
 
         CGPoint point = [self pointForMapPoint:mapPoint];
         NSCAssert(CGRectContainsPoint(rect, point), @"");
-        NSLog(@"%@", NSStringFromCGPoint(point));
 
-//        CGContextSetRGBStrokeColor(ctx, 0.8, 0.8, 0.8, 1.0);
-        CGContextSetFillColorWithColor(ctx, [UIColor orangeColor].CGColor);
         CGContextAddArc(ctx, point.x, point.y, 200, 0.0, (CGFloat) (M_PI* 2), YES);
-//        CGContextStrokePath(ctx);
         CGContextFillPath(ctx);
     }];
 }
