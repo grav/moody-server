@@ -9,5 +9,6 @@
 @interface MOOMoodInputView : SHPAbstractView
 
 @property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) UIImageView *moodImageView;
 
 @end

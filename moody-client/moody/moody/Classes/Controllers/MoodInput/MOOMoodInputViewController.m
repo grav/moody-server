@@ -37,13 +37,24 @@
 
 - (void)setupBindings {
     RACChannelTerminal *sliderTerminal = [self.mainView.slider rac_newValueChannelWithNilValue:@0];
-    RACChannelTerminal *modelTermnial = RACChannelTo_(self, viewModel.mood, @0);
-    [sliderTerminal subscribe:modelTermnial];
-    [modelTermnial subscribe:sliderTerminal];
+    RACChannelTerminal *modelTerminal = RACChannelTo_(self, viewModel.moodValue, @0);
+    [sliderTerminal subscribe:modelTerminal];
+    [modelTerminal subscribe:sliderTerminal];
 
     RAC(self.view, backgroundColor) = RACObserve(self, viewModel.backgroundColor);
+    RAC(self.mainView.moodImageView, image) = [RACObserve(self, viewModel.moodImage) distinctUntilChanged];
+
+    [self rac_liftSelector:@selector(bounceMoodImage:) withSignals:RACObserve(self.mainView.moodImageView, image), nil];
 }
 
+- (void)bounceMoodImage:(id)_ {
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
+    anim.springBounciness = 20;
+    anim.springSpeed = 20;
+    anim.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    anim.toValue = [NSValue valueWithCGSize:self.mainView.moodImageView.image.size];
+    [self.mainView.moodImageView pop_addAnimation:anim forKey:@"bounce"];
+}
 
 #pragma mark - Lazy loading views
 

@@ -8,8 +8,8 @@ extern CGFloat const kMinMoodValue;
 
 @interface MOOMoodInputViewModel : NSObject
 
-@property (nonatomic, assign) CGFloat mood;
-
+@property (nonatomic, assign) CGFloat moodValue;
 @property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIImage *moodImage;
 
 @end

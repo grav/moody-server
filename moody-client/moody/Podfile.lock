@@ -53,6 +53,7 @@ PODS:
   - Mantle/extobjc (1.4.1)
   - Masonry (0.4.0)
   - NSArray+Functional (1.0.0)
+  - pop (1.0.4)
   - ReactiveCocoa (2.3):
     - ReactiveCocoa/UI
   - ReactiveCocoa/Core (2.3):
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - Mantle
   - Masonry
   - NSArray+Functional
+  - pop (~> 1.0.4)
   - ReactiveCocoa
 
 EXTERNAL SOURCES:
@@ -87,6 +89,7 @@ SPEC CHECKSUMS:
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
   Masonry: d673617c9cbc24aaea90fba20b10e47fd9970a39
   NSArray+Functional: 2fb24f1533c1380a595ed1da347bd4ec705f5495
+  pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
   ReactiveCocoa: dde7b11a14954edf789e7343b2c32e595caabd01
 
 COCOAPODS: 0.32.1

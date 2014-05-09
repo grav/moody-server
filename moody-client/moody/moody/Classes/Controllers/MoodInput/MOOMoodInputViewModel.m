@@ -4,11 +4,24 @@
 //
 
 #import "MOOMoodInputViewModel.h"
+#import "MOOMoodManager.h"
 
 CGFloat const kMaxMoodValue = 5.f;
-CGFloat const kMinMoodValue = -5.f;
+CGFloat const kMinMoodValue = -kMaxMoodValue;
+
+static CGFloat const kRegisterMoodThrottle = 10.f;
+
+typedef NS_ENUM(NSInteger, MOOMoodState) {
+    MOOMoodStateVeryHappy,
+    MOOMoodStateHappy,
+    MOOMoodStateMedium,
+    MOOMoodStateSad,
+    MOOMoodStateVerySad
+};
 
 @interface MOOMoodInputViewModel ()
+
+@property (nonatomic, assign) MOOMoodState moodState;
 
 @end
 
@@ -17,39 +30,93 @@ CGFloat const kMinMoodValue = -5.f;
 - (id)init {
     if (!(self = [super init])) return nil;
 
-    self.mood = 0.f;
+    self.moodValue = 0.f;
 
-    RAC(self, backgroundColor) = [RACObserve(self, mood) map:^id(NSNumber *mood) {
-        if (mood.floatValue > 0) {
-            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor greenColor] withDuration:(mood.floatValue / kMaxMoodValue)];
-        }
-        else if (mood.floatValue == 0) {
-            return [UIColor yellowColor];
-        }
-        else {
-            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor redColor] withDuration:(CGFloat) (fabs(mood.floatValue / kMinMoodValue))];
-        }
-    }];
+    [self setupBindings];
 
     return self;
 }
 
+- (void)setupBindings {
+    [self bindBackgroundColor];
+    [self bindMoodRegistration];
+    [self bindMoodState];
+    [self bindMoodImage];
+}
 
-- (UIColor *)colorLerpFrom:(UIColor *)start to:(UIColor *)end withDuration:(CGFloat)t
-{
-    if(t < 0.0f) t = 0.0f;
-    if(t > 1.0f) t = 1.0f;
+- (void)bindBackgroundColor {
+    RAC(self, backgroundColor) = [RACObserve(self, moodValue) map:^id(NSNumber *moodNum) {
+        CGFloat moodValue = moodNum.floatValue;
+
+        if (moodValue > 0) {
+            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor greenColor] withDuration:(moodValue / kMaxMoodValue)];
+        }
+        else if (moodValue == 0) {
+            return [UIColor yellowColor];
+        }
+        else {
+            return [self colorLerpFrom:[UIColor yellowColor] to:[UIColor redColor] withDuration:(CGFloat) (fabs(moodValue / kMinMoodValue))];
+        }
+    }];
+}
+
+- (void)bindMoodRegistration {
+    RACSignal *registerMoodSignal = [RACObserve(self, moodValue) throttle:kRegisterMoodThrottle];
+    [[MOOMoodManager sharedInstance] rac_liftSelector:@selector(registerMoodValue:) withSignals:registerMoodSignal, nil];
+}
+
+- (void)bindMoodState {
+    RAC(self, moodState) = [RACObserve(self, moodValue) map:^id(NSNumber *moodNum) {
+        CGFloat moodValue = moodNum.floatValue;
+        CGFloat relativeMaxValue = (CGFloat) (fabs(kMinMoodValue) + kMaxMoodValue);
+        CGFloat relativeMoodValue = (moodValue + kMaxMoodValue) / relativeMaxValue;
+
+        if (relativeMoodValue > 0.8f) {
+            return @(MOOMoodStateVeryHappy);
+        }
+        else if (relativeMoodValue > 0.6f) {
+            return @(MOOMoodStateHappy);
+        }
+        else if (relativeMoodValue > 0.4f) {
+            return @(MOOMoodStateMedium);
+        }
+        else if (relativeMoodValue > 0.2f) {
+            return @(MOOMoodStateSad);
+        }
+        else {
+            return @(MOOMoodStateVerySad);
+        }
+    }];
+}
+
+- (void)bindMoodImage {
+    RAC(self, moodImage) = [RACObserve(self, moodState) map:^id(NSNumber *stateNum) {
+        MOOMoodState state = (MOOMoodState) stateNum.integerValue;
+        switch (state) {
+            case MOOMoodStateVeryHappy: return kImgMoodVeryHappy;
+            case MOOMoodStateHappy: return kImgMoodHappy;
+            case MOOMoodStateSad: return kImgMoodSad;
+            case MOOMoodStateVerySad: return kImgMoodVerySad;
+            case MOOMoodStateMedium:
+            default: return kImgMoodMedium;
+        }
+    }];
+}
+
+- (UIColor *)colorLerpFrom:(UIColor *)start to:(UIColor *)end withDuration:(CGFloat)t {
+    if (t < 0.0f) t = 0.0f;
+    if (t > 1.0f) t = 1.0f;
 
     const CGFloat *startComponent = CGColorGetComponents(start.CGColor);
     const CGFloat *endComponent = CGColorGetComponents(end.CGColor);
 
-    float startAlpha = CGColorGetAlpha(start.CGColor);
-    float endAlpha = CGColorGetAlpha(end.CGColor);
+    CGFloat startAlpha = CGColorGetAlpha(start.CGColor);
+    CGFloat endAlpha = CGColorGetAlpha(end.CGColor);
 
-    float r = startComponent[0] + (endComponent[0] - startComponent[0]) * t;
-    float g = startComponent[1] + (endComponent[1] - startComponent[1]) * t;
-    float b = startComponent[2] + (endComponent[2] - startComponent[2]) * t;
-    float a = startAlpha + (endAlpha - startAlpha) * t;
+    CGFloat r = startComponent[0] + (endComponent[0] - startComponent[0]) * t;
+    CGFloat g = startComponent[1] + (endComponent[1] - startComponent[1]) * t;
+    CGFloat b = startComponent[2] + (endComponent[2] - startComponent[2]) * t;
+    CGFloat a = startAlpha + (endAlpha - startAlpha) * t;
 
     return [UIColor colorWithRed:r green:g blue:b alpha:a];
 }
