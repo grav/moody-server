@@ -12,9 +12,12 @@
 		308A62FEFF240F935F8795EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D29CF51A7423EA4106A /* UIKit.framework */; };
 		308A65F5A9CD4508F066D6A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 308A6A290F6CB5CC164262AB /* InfoPlist.strings */; };
 		308A669498C7183A7AF01032 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A655C8F57AD69954E57B9 /* CoreGraphics.framework */; };
+		308A66FDCD0D8DB5BD6BBC9A /* MOOMockDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
 		308A6752671561C2349B98E1 /* MOOVizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */; };
 		308A687B330ECD98D7012424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D9B15066E76E5731F37 /* XCTest.framework */; };
+		308A6A373075F5B2B075DF6E /* MOOMoodRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A66D9E4276DFE235AFED9 /* MOOMoodRenderer.m */; };
 		308A6BD6EF881029BE78B09C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A606EE554E29527880849 /* main.m */; };
+		308A6C0419AEA99FFFAB5C5D /* MOOMoodsOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A69B99C8BB232C8B9BDDB /* MOOMoodsOverlay.m */; };
 		308A6C95BE3E95906F635529 /* moodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */; };
 		308A6DD1A9F30FA2D8DB21B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 308A6E509B601CE74BBBBC1C /* Images.xcassets */; };
 		308A6EC7C15221C92216D38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A66C6F31180A8938F7F7E /* Foundation.framework */; };
@@ -35,23 +38,29 @@
 
 /* Begin PBXFileReference section */
 		308A606EE554E29527880849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMockDataGenerator.h; sourceTree = "<group>"; };
 		308A62A611D4BB9322FDAD60 /* moodyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		308A655C8F57AD69954E57B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		308A65B6391E71787E22198D /* MOOMockDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMockDataGenerator.m; sourceTree = "<group>"; };
 		308A6641B00830D5F51F3FF4 /* moody-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "moody-Info.plist"; sourceTree = "<group>"; };
 		308A66C6F31180A8938F7F7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		308A66D9E4276DFE235AFED9 /* MOOMoodRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodRenderer.m; sourceTree = "<group>"; };
 		308A675C9A84863048B7755C /* moody-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "moody-Prefix.pch"; sourceTree = "<group>"; };
 		308A67AF3B09F0ACFA6A2A44 /* moodyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moodyTests.m; sourceTree = "<group>"; };
 		308A693389B81284CDC50AD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		308A693D9B4E14325393BBF5 /* MOOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOOAppDelegate.m; sourceTree = "<group>"; };
+		308A69B99C8BB232C8B9BDDB /* MOOMoodsOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodsOverlay.m; sourceTree = "<group>"; };
 		308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOVizViewController.m; sourceTree = "<group>"; };
 		308A6B7173ABE295CD7594EA /* MOOVizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOVizViewController.h; sourceTree = "<group>"; };
 		308A6C16FF879BDBAD737E61 /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		308A6C74D820519BFD0947BE /* MOOMoodRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodRenderer.h; sourceTree = "<group>"; };
 		308A6CC4C0BBAA2CFF747280 /* MOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOOAppDelegate.h; sourceTree = "<group>"; };
 		308A6CD981E091DA1B4D3A4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		308A6D29CF51A7423EA4106A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		308A6D32CCAA3CD68746DC75 /* moodyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "moodyTests-Info.plist"; sourceTree = "<group>"; };
 		308A6D9B15066E76E5731F37 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		308A6E509B601CE74BBBBC1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		308A6F399764FE558EE29B2F /* MOOMoodsOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodsOverlay.h; sourceTree = "<group>"; };
 		ACF817844C0D46E7A0E7255D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FD5416CC5099441289BDD0B0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +104,10 @@
 			children = (
 				308A6A32FAD532FC2EA87BB8 /* MOOVizViewController.m */,
 				308A6B7173ABE295CD7594EA /* MOOVizViewController.h */,
+				308A66D9E4276DFE235AFED9 /* MOOMoodRenderer.m */,
+				308A6C74D820519BFD0947BE /* MOOMoodRenderer.h */,
+				308A69B99C8BB232C8B9BDDB /* MOOMoodsOverlay.m */,
+				308A6F399764FE558EE29B2F /* MOOMoodsOverlay.h */,
 			);
 			path = Visualization;
 			sourceTree = "<group>";
@@ -136,6 +149,8 @@
 				308A693D9B4E14325393BBF5 /* MOOAppDelegate.m */,
 				308A6E509B601CE74BBBBC1C /* Images.xcassets */,
 				308A618293EFE9396F21A19C /* Visualization */,
+				308A65B6391E71787E22198D /* MOOMockDataGenerator.m */,
+				308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */,
 			);
 			path = moody;
 			sourceTree = "<group>";
@@ -300,6 +315,9 @@
 				308A6BD6EF881029BE78B09C /* main.m in Sources */,
 				308A6F3CE3DBDFDA7036C4E1 /* MOOAppDelegate.m in Sources */,
 				308A6752671561C2349B98E1 /* MOOVizViewController.m in Sources */,
+				308A66FDCD0D8DB5BD6BBC9A /* MOOMockDataGenerator.m in Sources */,
+				308A6A373075F5B2B075DF6E /* MOOMoodRenderer.m in Sources */,
+				308A6C0419AEA99FFFAB5C5D /* MOOMoodsOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +361,7 @@
 				GCC_PREFIX_HEADER = "moody/moody-Prefix.pch";
 				INFOPLIST_FILE = "moody/moody-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -461,6 +480,7 @@
 				GCC_PREFIX_HEADER = "moody/moody-Prefix.pch";
 				INFOPLIST_FILE = "moody/moody-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

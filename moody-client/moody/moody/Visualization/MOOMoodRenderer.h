@@ -4,9 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-
-@interface MOOVizViewController : UIViewController
-
-
+@interface MOOMoodRenderer : MKOverlayRenderer
 @end

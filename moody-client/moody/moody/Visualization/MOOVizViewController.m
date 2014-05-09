@@ -4,20 +4,34 @@
 //
 
 #import "MOOVizViewController.h"
+#import "MOOMockDataGenerator.h"
+#import "MOOMoodRenderer.h"
+#import "MOOMoodsOverlay.h"
 #import <MapKit/MapKit.h>
+
 
 @interface MOOVizViewController ()<MKMapViewDelegate>
 
+@property(nonatomic) MKMapRect rect;
 @end
 
 @implementation MOOVizViewController {
 
 }
 
+- (void)updateOnClassInjection
+{
+    [self loadView];
+}
+
 - (void)loadView {
     [super loadView];
     MKMapView *mapView = [MKMapView new];
     mapView.mapType = MKMapTypeHybrid;
+    mapView.showsUserLocation = YES;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(mapView.userLocation.location.coordinate, 1000, 1000);
+    [mapView setRegion:region];
+    mapView.delegate = self;
 
     UISlider *slider = [UISlider new];
     [@[mapView, slider] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -37,7 +51,35 @@
         make.bottom.equalTo(slider.superview);
     }];
 
+
+    RACSignal *time = [[slider rac_signalForControlEvents:UIControlEventValueChanged] map:^id(UISlider *slider1) {
+        return @(slider1.value);
+    }];
+
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(
+            55.942774, 11.681137
+    );
+
+    NSArray *locations = [MOOMockDataGenerator randomWalkFromLocation:location
+                                                                steps:10
+                                                            startTime:[NSDate date]];
+
+    MOOMoodsOverlay *moodsOverlay = [MOOMoodsOverlay overlayWithMoods:locations];
+    [mapView addOverlay:moodsOverlay];
+
+    [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
+
+    NSLog(@"%@",locations);
+
+
+
 }
 
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay
+{
+    MOOMoodRenderer *renderer = [[MOOMoodRenderer alloc] initWithOverlay:overlay];
+    return renderer;
+}
 
 @end
