@@ -55,7 +55,7 @@ static NSString *const kUserId = @"userid";
 
 - (void)registerMoodValue:(CGFloat)moodValue {
     CLLocation *location = [self currentLocation];
-    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location user:0];
+    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location user:self.userId];
     [self enqueueMood:mood];
 }
 
