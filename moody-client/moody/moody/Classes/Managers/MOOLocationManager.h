@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Betafunk. All rights reserved.
 //
 
+@class CLLocation;
 
 @interface MOOLocationManager : NSObject
 

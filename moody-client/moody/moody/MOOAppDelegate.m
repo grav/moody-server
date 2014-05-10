@@ -9,12 +9,10 @@
 #import <NSArray+Functional/NSArray+Functional.h>
 #import "MOOAppDelegate.h"
 #import "MOOVizViewController.h"
-#import "MOOMoodInputViewController.h"
 #import "MMDrawerController.h"
 #import "MMDrawerVisualState.h"
 #import "MOOMenuViewController.h"
 #import "MOOLocationManager.h"
-#import "MOOMoodManager.h"
 #import "MOOMockDataGenerator.h"
 #import "MOOMood.h"
 #import "MOOAPIManager.h"

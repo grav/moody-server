@@ -61,7 +61,6 @@ static NSString *const kUserId = @"userid";
 }
 
 - (CLLocation *)currentLocation {
-    // TODO
     return [[MOOLocationManager sharedInstance] currentLocation];
 }
 

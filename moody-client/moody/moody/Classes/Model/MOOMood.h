@@ -6,7 +6,7 @@
 
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
-@class CLLocation;
+#import <CoreLocation/CoreLocation.h>
 
 @interface MOOMood : MTLModel<MTLJSONSerializing>
 
