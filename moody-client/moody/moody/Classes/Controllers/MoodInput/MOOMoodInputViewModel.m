@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, MOOMoodState) {
 - (void)bindMoodState {
     RAC(self, moodState) = [RACObserve(self, moodValue) map:^id(NSNumber *moodNum) {
         CGFloat moodValue = moodNum.floatValue;
-        CGFloat relativeMoodValue = moodValue + 1 / 2;
+        CGFloat relativeMoodValue = moodValue + 1 / 2.0f;
 
         if (relativeMoodValue > 0.8f) {
             return @(MOOMoodStateVeryHappy);
