@@ -31,5 +31,8 @@
       wrap-json-body
       wrap-json-response))
 
-(defonce server (jetty/run-jetty #'app
+#_(defonce server (jetty/run-jetty #'app
                            {:port 3000 :join? false}))
+
+(defn -main [port]
+  (jetty/run-jetty app {:port (Integer. port) :join? false}))
