@@ -12,6 +12,7 @@
 #import "MMDrawerController.h"
 #import "MMDrawerVisualState.h"
 #import "MOOMenuViewController.h"
+#import "MOOLocationManager.h"
 
 #if TARGET_IPHONE_SIMULATOR
 	#import "DCIntrospect.h"
@@ -32,6 +33,8 @@ static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModeTapCenterView;
     [drawerController setDrawerVisualStateBlock:[MMDrawerVisualState parallaxVisualStateBlockWithParallaxFactor:2]];
     self.window.rootViewController = drawerController;
+
+    [MOOLocationManager sharedInstance];
 
     [self setupClassy];
     [self startDCIntrospect];

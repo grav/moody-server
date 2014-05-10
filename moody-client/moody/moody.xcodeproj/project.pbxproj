@@ -37,6 +37,7 @@
 		CA8ED678CB4DB2BF67BCFC36 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED9B20246BE6C26D231DE /* CoreLocation.framework */; };
 		CA8ED702AD9E3B22F1F2566E /* stylesheet.cas in Resources */ = {isa = PBXBuildFile; fileRef = CA8ED0AFEDC6200DC75BB1C3 /* stylesheet.cas */; };
 		CA8EDB116329D03E542E7BD7 /* MOOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDFE1F121E8FBC368447D /* MOOAppDelegate.m */; };
+		CA8EDB45D09CAE62D74D4507 /* MOOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED7D0DF5F06EEF48CEC65 /* MOOLocationManager.m */; };
 		CA8EDB7094133EA40357B937 /* MOOMoodInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDD81022353B991D663A0 /* MOOMoodInputView.m */; };
 		CA8EDCD743AE825F3C6C918A /* MOOMood.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED1E6E31D6DB70D5C4B63 /* MOOMood.m */; };
 		CA8EDD824CE503821F61A882 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED33B602E088125EC9326 /* MapKit.framework */; };
@@ -97,9 +98,11 @@
 		CA8ED65C16C6AE5422379CD1 /* MOOMoodInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodInputView.h; sourceTree = "<group>"; };
 		CA8ED6753815D3BE7C75AAA6 /* MOOMood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMood.h; sourceTree = "<group>"; };
 		CA8ED75470F32749898589D6 /* color.cas */ = {isa = PBXFileReference; lastKnownFileType = file.cas; path = color.cas; sourceTree = "<group>"; };
+		CA8ED7D0DF5F06EEF48CEC65 /* MOOLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOLocationManager.m; sourceTree = "<group>"; };
 		CA8ED9B20246BE6C26D231DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CA8ED9C5EE8943169340E9DC /* MOOMoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodManager.m; sourceTree = "<group>"; };
 		CA8EDC030D66F34CD3579A18 /* input_view.cas */ = {isa = PBXFileReference; lastKnownFileType = file.cas; path = input_view.cas; sourceTree = "<group>"; };
+		CA8EDC30540A7379A6EEA21E /* MOOLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOLocationManager.h; sourceTree = "<group>"; };
 		CA8EDC7C05487CBC7E2B0E1A /* MOOMoodInputViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMoodInputViewModel.h; sourceTree = "<group>"; };
 		CA8EDD81022353B991D663A0 /* MOOMoodInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodInputView.m; sourceTree = "<group>"; };
 		CA8EDE515EF60BCC1BDBD2AB /* MOOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOAppDelegate.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				CA8ED60D10DF9E0AE4D9470A /* MOOMoodManager.h */,
 				CA8ED656CFC22D771F4DA95C /* MOOAPIManager.m */,
 				CA8ED0F21494DD545A014C56 /* MOOAPIManager.h */,
+				CA8ED7D0DF5F06EEF48CEC65 /* MOOLocationManager.m */,
+				CA8EDC30540A7379A6EEA21E /* MOOLocationManager.h */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				308A67DD695C3B1714D1DB05 /* MOOMockDataGenerator.m in Sources */,
 				308A6EAF3FB0C574BC4982BB /* NSDate+MOOAdditions.m in Sources */,
 				308A659E79E24A38C7E6909F /* NSURLConnection+MOOAdditions.m in Sources */,
+				CA8EDB45D09CAE62D74D4507 /* MOOLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

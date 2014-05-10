@@ -7,6 +7,7 @@
 #import "MOOMoodManager.h"
 #import "MOOMood.h"
 #import "MOOAPIManager.h"
+#import "MOOLocationManager.h"
 
 static CGFloat const kUploadQueueThrottle = 60.f;
 
@@ -47,12 +48,7 @@ static CGFloat const kUploadQueueThrottle = 60.f;
 
 - (CLLocation *)currentLocation {
     // TODO
-    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(0, 0)
-                                         altitude:0
-                               horizontalAccuracy:0
-                                 verticalAccuracy:0
-                                           course:0 speed:0
-                                        timestamp:[NSDate date]];
+    return [[MOOLocationManager sharedInstance] currentLocation];
 }
 
 - (void)enqueueMood:(MOOMood *)mood {
