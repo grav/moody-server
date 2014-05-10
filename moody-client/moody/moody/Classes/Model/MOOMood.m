@@ -15,12 +15,13 @@
     CLLocation *_location;
 }
 
-+ (instancetype)moodWithScore:(double)score location:(CLLocation *)location {
++ (instancetype)moodWithScore:(double)score location:(CLLocation *)location user:(NSInteger)userId {
     MOOMood *mood = [MOOMood new];
     mood.latitude = location.coordinate.latitude;
     mood.longtitude = location.coordinate.longitude;
     mood.mood = score;
     mood.timestamp = location.timestamp;
+    mood.userId = userId;
     return mood;
 }
 

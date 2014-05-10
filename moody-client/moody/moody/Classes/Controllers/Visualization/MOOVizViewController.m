@@ -74,7 +74,7 @@
 
     [moodsOverlay rac_liftSelector:@selector(setMoods:) withSignalsFromArray:@[[MOOAPIManager getMoods]]];
 
-    [[RACObserve(moodsOverlay, moods) ignore:nil] subscribeNext:^(id x) {
+    [[[RACObserve(moodsOverlay, moods) ignore:nil] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
         @strongify(mapView)
         [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
     }];

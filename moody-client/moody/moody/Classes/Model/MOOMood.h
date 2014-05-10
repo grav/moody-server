@@ -14,7 +14,9 @@
 @property (nonatomic) double latitude, longtitude;
 @property (nonatomic, strong) NSDate *timestamp;
 
-+ (instancetype)moodWithScore:(double)score location:(CLLocation*)location;
+@property(nonatomic) NSInteger userId;
+
++ (instancetype)moodWithScore:(double)score location:(CLLocation *)location user:(NSInteger)userId;
 
 - (CLLocation *)location;
 

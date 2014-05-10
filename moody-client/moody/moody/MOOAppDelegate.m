@@ -52,7 +52,7 @@ static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
     NSArray *locations = [MOOMockDataGenerator randomWalkFromLocation:[MOOMockDataGenerator here] steps:60
                                        startTime:[NSDate date]];
     NSArray *moods = [locations mapUsingBlock:^id(id obj) {
-        return [MOOMood moodWithScore:(CGFloat) ((drand48() - 0.5) * 2) location:obj];
+        return [MOOMood moodWithScore:(CGFloat) ((drand48() - 0.5) * 2) location:obj user:0];
     }];
 
     [[MOOAPIManager postMoods:moods] subscribeNext:^(id x) {

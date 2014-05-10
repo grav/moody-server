@@ -61,7 +61,7 @@
                                                             speed:0
                                                         timestamp:currentDate];
 
-    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location];
+    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location user:0];
 
     return @[mood];
 }
