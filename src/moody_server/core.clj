@@ -16,9 +16,6 @@
 (defn add-mood! [mood]
   (swap! moods conj (keywordify mood)))
 
-(defn get-moods []
-  @moods)
-
 (defroutes app-routes
 ;  (GET "/test" [] "<h1>test</h1>")
   (GET "/moods" []
