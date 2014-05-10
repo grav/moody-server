@@ -21,7 +21,9 @@
   (GET "/moods" []
        (response @moods))
   (POST "/moods" {moods :body}
-        (map add-mood! moods)))
+        (let [new-moods (map add-mood! moods)]
+          (response
+           {:moods (count (first new-moods))} ))))
 
 (def app
   (-> (handler/site app-routes)
