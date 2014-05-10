@@ -7,9 +7,11 @@
 #import "NSArray+Functional.h"
 #import "NSDate+MOOAdditions.h"
 #import "MOOMood.h"
+#import "MOOUserMoods.h"
 
 @interface MOOMoodsOverlay ()
 @property (nonatomic, strong) CLLocation *firstLocation, *lastLocation;
+@property (nonatomic, strong) NSArray *userMoods;
 @end
 
 @implementation MOOMoodsOverlay {
@@ -27,43 +29,30 @@
         return [location.timestamp isAfterDate:last.timestamp] ? location : last;
     } initialAggregation:[self.moods firstObject]];
 
+    NSArray *userIds = [moods mapUsingBlock:^id(MOOMood *mood) {
+        return @(mood.userId);
+    }];
+    NSSet *uniqueIds = [NSSet setWithArray:userIds];
+
+    self.userMoods = [[[uniqueIds allObjects] mapUsingBlock:^id(NSNumber *userId) {
+        return [moods filterUsingBlock:^BOOL(MOOMood *mood) {
+            return mood.userId == userId.integerValue;
+        }];
+    }] mapUsingBlock:^id(NSArray *filteredMoods) {
+        MOOUserMoods *userMoods = [MOOUserMoods new];
+        userMoods.moods =  filteredMoods;
+        return userMoods;
+    }];
+
 }
 
 - (NSArray *)moodsInRect:(MKMapRect)mapRect
 {
     NSTimeInterval interval = [self.lastLocation.timestamp timeIntervalSinceDate:self.firstLocation.timestamp] * self.time + [self.firstLocation.timestamp timeIntervalSince1970];
     NSDate *currentDate = [NSDate dateWithTimeIntervalSince1970:interval];
-
-
-    MOOMood *before = [self.moods reduceUsingBlock:^id(MOOMood *a, MOOMood *l) {
-        if([l.timestamp isEqualToDate:currentDate]) return l;
-        return [l.timestamp isBeforeDate:currentDate] && [l.timestamp isAfterDate:a.timestamp] ? l : a;
-    } initialAggregation:self.firstLocation];
-
-    MOOMood *after = [self.moods reduceUsingBlock:^id(MOOMood *a, MOOMood *l) {
-        return [l.timestamp isAfterDate:currentDate] && [l.timestamp isBeforeDate:a.timestamp] ? l : a;
-    } initialAggregation:self.lastLocation];
-
-    double norm = (currentDate.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970) / (after.timestamp.timeIntervalSince1970 - before.timestamp.timeIntervalSince1970);
-
-    MKMapPoint afterPoint = MKMapPointForCoordinate(CLLocationCoordinate2DMake(after.latitude, after.longtitude));
-    MKMapPoint beforePoint = MKMapPointForCoordinate(CLLocationCoordinate2DMake(before.latitude, before.longtitude));
-    double x = (afterPoint.x - beforePoint.x) * norm + beforePoint.x;
-    double y = (afterPoint.y - beforePoint.y) * norm + beforePoint.y;
-
-    double moodValue = (after.mood - before.mood) * norm + before.mood;
-
-    CLLocation *location = [[CLLocation alloc] initWithCoordinate:MKCoordinateForMapPoint(MKMapPointMake(x, y))
-                                                         altitude:0
-                                               horizontalAccuracy:0
-                                                 verticalAccuracy:0
-                                                           course:0
-                                                            speed:0
-                                                        timestamp:currentDate];
-
-    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location user:0];
-
-    return @[mood];
+    return [self.userMoods mapUsingBlock:^id(MOOUserMoods *userMoods) {
+        return [userMoods moodForTime:currentDate];
+    }];
 }
 
 - (CLLocationCoordinate2D)coordinate {

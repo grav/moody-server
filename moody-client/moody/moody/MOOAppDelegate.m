@@ -49,15 +49,17 @@ static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
 }
 
 - (void)sendMockData {
-    NSArray *locations = [MOOMockDataGenerator randomWalkFromLocation:[MOOMockDataGenerator here] steps:60
-                                       startTime:[NSDate date]];
-    NSArray *moods = [locations mapUsingBlock:^id(id obj) {
-        return [MOOMood moodWithScore:(CGFloat) ((drand48() - 0.5) * 2) location:obj user:0];
-    }];
+    NSInteger nUsers = 10;
+    for(int userid =1; userid <nUsers+1; userid++){
+        NSArray *moods = [[MOOMockDataGenerator randomWalkFromLocation:[MOOMockDataGenerator here] steps:60
+                                                             startTime:[NSDate date]] mapUsingBlock:^id(id obj) {
+            return [MOOMood moodWithScore:(CGFloat) ((drand48() - 0.5) * 2) location:obj user:userid];
+        }];
 
-    [[MOOAPIManager postMoods:moods] subscribeNext:^(id x) {
+        [[MOOAPIManager postMoods:moods] subscribeNext:^(id x) {
 
-    }];
+        }];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

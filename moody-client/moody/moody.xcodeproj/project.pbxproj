@@ -19,6 +19,7 @@
 		308A67DD695C3B1714D1DB05 /* MOOMockDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A65B6391E71787E22198D /* MOOMockDataGenerator.m */; };
 		308A681AA6CF4E6661214A2D /* MOOMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6B9CF030CB597D5741AF /* MOOMenuViewController.m */; };
 		308A687B330ECD98D7012424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308A6D9B15066E76E5731F37 /* XCTest.framework */; };
+		308A692EEF540957BB66A63D /* MOOUserMoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6CD633AE891F40CB70C2 /* MOOUserMoods.m */; };
 		308A6A6211EF83CEE25E7CC4 /* MOOVizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A6C55478628AE41FCAAA3 /* MOOVizViewController.m */; };
 		308A6AF9BE6FCA8E8749E2D2 /* MOOMoodRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A675ED98B596D91D13AC6 /* MOOMoodRenderer.m */; };
 		308A6BD6EF881029BE78B09C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A606EE554E29527880849 /* main.m */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		308A6015AE540134AA0A5515 /* MOOVizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOVizViewController.h; sourceTree = "<group>"; };
+		308A603C71F6D493373C7B54 /* MOOUserMoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOUserMoods.h; sourceTree = "<group>"; };
 		308A606EE554E29527880849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		308A60FB7CE2D85868B63E08 /* MOOMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMenuViewController.h; sourceTree = "<group>"; };
 		308A61D9915581D0CA7C7CE9 /* MOOMockDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOMockDataGenerator.h; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		308A6C55478628AE41FCAAA3 /* MOOVizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOVizViewController.m; sourceTree = "<group>"; };
 		308A6C94F9175F9630CCDBFD /* UIColor+MOOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MOOAdditions.m"; sourceTree = "<group>"; };
 		308A6CC4C0BBAA2CFF747280 /* MOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOOAppDelegate.h; sourceTree = "<group>"; };
+		308A6CD633AE891F40CB70C2 /* MOOUserMoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOUserMoods.m; sourceTree = "<group>"; };
 		308A6CD981E091DA1B4D3A4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		308A6D09CD5525F504387EF8 /* MOOMoodsOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOMoodsOverlay.m; sourceTree = "<group>"; };
 		308A6D29CF51A7423EA4106A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -262,6 +265,8 @@
 			children = (
 				CA8ED1E6E31D6DB70D5C4B63 /* MOOMood.m */,
 				CA8ED6753815D3BE7C75AAA6 /* MOOMood.h */,
+				308A6CD633AE891F40CB70C2 /* MOOUserMoods.m */,
+				308A603C71F6D493373C7B54 /* MOOUserMoods.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				308A6EAF3FB0C574BC4982BB /* NSDate+MOOAdditions.m in Sources */,
 				308A659E79E24A38C7E6909F /* NSURLConnection+MOOAdditions.m in Sources */,
 				308A6D43660259B7601E93B2 /* UIColor+MOOAdditions.m in Sources */,
+				308A692EEF540957BB66A63D /* MOOUserMoods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
