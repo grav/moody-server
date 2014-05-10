@@ -9,11 +9,15 @@
 #import "MOOAPIManager.h"
 #import "MOOLocationManager.h"
 
-static CGFloat const kUploadQueueThrottle = 60.f;
+static CGFloat const kUploadQueueThrottle = 10.f;
+
+static NSString *const kUserId = @"userid";
 
 @interface MOOMoodManager ()
 
 @property (nonatomic, strong) NSArray *queue;
+
+@property (nonatomic) NSInteger userId;
 
 @end
 
@@ -37,12 +41,22 @@ static CGFloat const kUploadQueueThrottle = 60.f;
     RACSignal *queueIsReadyToUploadSignal = [[RACObserve(self, queue) skip:1] throttle:kUploadQueueThrottle];
     [self rac_liftSelector:@selector(uploadObjectsInQueue:) withSignals:queueIsReadyToUploadSignal, nil];
 
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:kUserId];
+    if(userId==0){
+        userId = arc4random();
+        [[NSUserDefaults standardUserDefaults] setInteger:userId forKey:kUserId];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    self.userId = userId;
+
+
     return self;
 }
 
 - (void)registerMoodValue:(CGFloat)moodValue {
     CLLocation *location = [self currentLocation];
-    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location];
+    MOOMood *mood = [MOOMood moodWithScore:moodValue location:location user:self.userId];
     [self enqueueMood:mood];
 }
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Betafunk. All rights reserved.
 //
 
+#import <NSArray+Functional/NSArray+Functional.h>
 #import "MOOAppDelegate.h"
 #import "MOOVizViewController.h"
 #import "MOOMoodInputViewController.h"
@@ -13,6 +14,10 @@
 #import "MMDrawerVisualState.h"
 #import "MOOMenuViewController.h"
 #import "MOOLocationManager.h"
+#import "MOOMoodManager.h"
+#import "MOOMockDataGenerator.h"
+#import "MOOMood.h"
+#import "MOOAPIManager.h"
 
 #if TARGET_IPHONE_SIMULATOR
 	#import "DCIntrospect.h"
@@ -27,7 +32,7 @@ static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:[MOOMoodInputViewController new]
+    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:[MOOVizViewController new]
                                                                      leftDrawerViewController:[MOOMenuViewController new]];
     drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeBezelPanningCenterView;
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModeTapCenterView;
@@ -39,9 +44,25 @@ static NSString *const kNameOfStylesheetFile = @"Stylesheets/stylesheet.cas";
     [self setupClassy];
     [self startDCIntrospect];
 
+//    [self sendMockData];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)sendMockData {
+    NSInteger nUsers = 10;
+    for(int userid =1; userid <nUsers+1; userid++){
+        NSArray *moods = [[MOOMockDataGenerator randomWalkFromLocation:[MOOMockDataGenerator here] steps:60
+                                                             startTime:[NSDate date]] mapUsingBlock:^id(id obj) {
+            return [MOOMood moodWithScore:(CGFloat) ((drand48() - 0.5) * 2) location:obj user:userid];
+        }];
+
+        [[MOOAPIManager postMoods:moods] subscribeNext:^(id x) {
+
+        }];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

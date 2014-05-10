@@ -39,4 +39,11 @@
     return end;
 }
 
++ (CLLocationCoordinate2D)here
+{
+    return CLLocationCoordinate2DMake(
+               55.942774, 11.681137
+    );
+}
+
 @end

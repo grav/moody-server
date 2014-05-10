@@ -6,6 +6,8 @@
 #import "MOOMoodRenderer.h"
 #import "NSArray+Functional.h"
 #import "MOOMoodsOverlay.h"
+#import "MOOMood.h"
+#import "UIColor+MOOAdditions.h"
 
 
 @implementation MOOMoodRenderer {
@@ -20,14 +22,15 @@
 
     MOOMoodsOverlay *overlay = (MOOMoodsOverlay *) self.overlay;
 
-    CGContextSetFillColorWithColor(ctx, [UIColor orangeColor].CGColor);
 
+    [[overlay moodsInRect:mapRect] enumerateObjectsUsingBlock:^(MOOMood *mood, NSUInteger idx, BOOL *stop) {
+        UIColor *moodColor = [UIColor colorForMood:mood.mood];
+        CGContextSetFillColorWithColor(ctx, moodColor.CGColor);
 
-    [[overlay moodsInRect:mapRect] enumerateObjectsUsingBlock:^(CLLocation *location, NSUInteger idx, BOOL *stop) {
-        MKMapPoint mapPoint = MKMapPointForCoordinate(location.coordinate);
+        MKMapPoint mapPoint = MKMapPointForCoordinate(mood.location.coordinate);
 
         CGPoint point = [self pointForMapPoint:mapPoint];
-        CGContextAddArc(ctx, point.x, point.y, 200, 0.0, (CGFloat) (M_PI* 2), YES);
+        CGContextAddArc(ctx, point.x, point.y, 10 * (1.0 / zoomScale), 0.0, (CGFloat) (M_PI* 2), YES);
         CGContextFillPath(ctx);
     }];
 }

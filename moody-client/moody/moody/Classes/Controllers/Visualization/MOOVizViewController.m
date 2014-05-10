@@ -7,6 +7,7 @@
 #import "MOOMockDataGenerator.h"
 #import "MOOMoodRenderer.h"
 #import "MOOMoodsOverlay.h"
+#import "MOOAPIManager.h"
 #import <MapKit/MapKit.h>
 
 
@@ -56,27 +57,28 @@
         return @(slider1.value);
     }];
 
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(
-            55.942774, 11.681137
-    );
 
-    NSArray *locations = [MOOMockDataGenerator randomWalkFromLocation:location
-                                                                steps:10
-                                                            startTime:[NSDate date]];
 
-    MOOMoodsOverlay *moodsOverlay = [MOOMoodsOverlay overlayWithMoods:locations];
+    MOOMoodsOverlay *moodsOverlay = [MOOMoodsOverlay new];
     RAC(moodsOverlay,time) = time;
     [mapView addOverlay:moodsOverlay];
 
-    [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
-
+    @weakify(mapView)
     [time subscribeNext:^(id x) {
+        @strongify(mapView)
         [mapView removeOverlay:moodsOverlay];
         [mapView addOverlay:moodsOverlay];
     }];
-    
-}
 
+    ;
+
+    [moodsOverlay rac_liftSelector:@selector(setMoods:) withSignalsFromArray:@[[MOOAPIManager getMoods]]];
+
+    [[[RACObserve(moodsOverlay, moods) ignore:nil] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+        @strongify(mapView)
+        [mapView setVisibleMapRect:[moodsOverlay boundingMapRect]];
+    }];
+}
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay
 {

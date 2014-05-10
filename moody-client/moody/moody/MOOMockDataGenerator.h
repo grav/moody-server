@@ -10,4 +10,5 @@
 
 + (NSArray *)randomWalkFromLocation:(CLLocationCoordinate2D)start steps:(NSInteger)steps startTime:(NSDate *)startTime;
 
++ (CLLocationCoordinate2D)here;
 @end
