@@ -19,6 +19,8 @@
     MOOMood *mood = [MOOMood new];
     mood.latitude = location.coordinate.latitude;
     mood.longtitude = location.coordinate.longitude;
+    mood.horizontalAccuracy = location.horizontalAccuracy;
+    mood.verticalAccuracy = location.verticalAccuracy; 
     mood.mood = score;
     mood.timestamp = location.timestamp;
     mood.userId = userId;
@@ -29,8 +31,8 @@
     if(!_location){
         _location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longtitude)
                                                  altitude:0
-                                       horizontalAccuracy:0
-                                         verticalAccuracy:0
+                                       horizontalAccuracy:self.horizontalAccuracy
+                                         verticalAccuracy:self.verticalAccuracy
                                                    course:0 speed:0
                                                 timestamp:self.timestamp];
 

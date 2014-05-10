@@ -16,6 +16,10 @@
 
 @property(nonatomic) NSInteger userId;
 
+@property(nonatomic) CLLocationAccuracy horizontalAccuracy;
+
+@property(nonatomic) CLLocationAccuracy verticalAccuracy;
+
 + (instancetype)moodWithScore:(double)score location:(CLLocation *)location user:(NSInteger)userId;
 
 - (CLLocation *)location;
