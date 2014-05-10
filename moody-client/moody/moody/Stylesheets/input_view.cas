@@ -1,8 +1,0 @@
-UIImageView.mood-input-image-view {
-    margin-top: 30;
-}
-
-UISlider.mood-input-slider {
-    margin-top: 20;
-    margin-bottom: 30;
-}
