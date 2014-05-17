@@ -4,22 +4,25 @@
             [ring.util.response :refer :all]
             [compojure.core :refer :all]
             [compojure.route :as route]
-            [compojure.handler :as handler]))
-
-(defn keywordify [obj]
-  (let [keys (->> (keys obj)
-                  (map keyword))]
-    (zipmap keys (vals obj))))
-
-(def moods (atom []))
+            [compojure.handler :as handler]
+            [clojure.java.jdbc :as jdbc]))
 
 (defn add-mood! [mood]
-  (swap! moods conj (keywordify mood)))
+  (jdbc/insert!
+   "jdbc:postgresql://grav@localhost:5432/grav"
+   :moods
+   {:mood mood}))
+
+(defn get-moods []
+  (->> (jdbc/query
+       "jdbc:postgresql://grav@localhost:5432/grav"
+       "SELECT * FROM moods")
+      (map :mood)))
 
 (defroutes app-routes
 ;  (GET "/test" [] "<h1>test</h1>")
   (GET "/moods" []
-       (response @moods))
+       (response (get-moods)))
   (POST "/moods" {moods :body}
         (let [new-moods (map add-mood! moods)]
           (response
