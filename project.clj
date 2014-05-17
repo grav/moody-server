@@ -10,6 +10,7 @@
                  [compojure "1.1.7"]
                  [postgresql "9.3-1101.jdbc4"]
                  [org.clojure/java.jdbc "0.3.3"]
-                 [org.clojure/data.json "0.2.4"]]
+                 [org.clojure/data.json "0.2.4"]
+                 [environ "0.5.0"]]
   :uberjar-name "moody-standalone.jar"
   :min-lein-version "2.0.0")

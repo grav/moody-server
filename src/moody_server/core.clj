@@ -5,17 +5,21 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [compojure.handler :as handler]
-            [clojure.java.jdbc :as jdbc]))
+            [clojure.java.jdbc :as jdbc]
+            [environ.core :as environ]))
+
+(def *db*
+  (environ/env :db))
 
 (defn add-mood! [mood]
   (jdbc/insert!
-   "jdbc:postgresql://grav@localhost:5432/grav"
+   *db*
    :moods
    {:mood mood}))
 
 (defn get-moods []
   (->> (jdbc/query
-       "jdbc:postgresql://grav@localhost:5432/grav"
+       *db*
        "SELECT * FROM moods")
       (map :mood)))
 
