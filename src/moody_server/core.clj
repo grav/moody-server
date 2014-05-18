@@ -1,5 +1,6 @@
 (ns moody-server.core
-  (:require [ring.middleware.json :refer :all]
+  (:require [moody-server.db]
+            [ring.middleware.json :refer :all]
             [ring.adapter.jetty :as jetty]
             [ring.util.response :refer :all]
             [compojure.core :refer :all]
